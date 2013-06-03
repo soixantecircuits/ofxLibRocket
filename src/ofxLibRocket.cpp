@@ -31,15 +31,17 @@ ofxLibRocket::~ofxLibRocket()
 {
 }
 
-void ofxLibRocket::setup()
+void ofxLibRocket::setup(string contextname)
 {
-	context = Rocket::Core::CreateContext("main", Rocket::Core::Vector2i(ofGetWidth(), ofGetHeight()));
+	context = Rocket::Core::CreateContext(Rocket::Core::String(contextname.c_str()), Rocket::Core::Vector2i(ofGetWidth(), ofGetHeight()));
 	if (context == NULL) {
 		Rocket::Core::Shutdown();
 		ofExit();
 	}
 
-	Rocket::Debugger::Initialise(context);
+  if (contextname == "main"){
+    Rocket::Debugger::Initialise(context);
+  }
 
 	Rocket::Core::RegisterPlugin(this);	
 
@@ -368,4 +370,8 @@ int ofxLibRocket::getKeyModifier()
 	/*if (x_state & Mod2Mask)
 		key_modifier_state |= Rocket::Core::Input::KM_NUMLOCK;*/
 	return key_modifier_state;
+}
+
+void ofxLibRocket::unloadAllDocuments(){
+  context->UnloadAllDocuments();
 }

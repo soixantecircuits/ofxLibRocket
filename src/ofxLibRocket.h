@@ -22,7 +22,7 @@ public:
 	ofxLibRocket();
 	~ofxLibRocket();
 
-	void setup();
+	void setup(string contextname="main");
 	void update(ofEventArgs& e);
 	void update();
 	void draw(ofEventArgs& e);
@@ -32,6 +32,7 @@ public:
 	void loadFont(string file);
 	
 	ofxLibRocketDocument* loadDocument(string docPath);
+  void unloadAllDocuments();
 	
 	void keyPressed  (ofKeyEventArgs& e);
 	void keyReleased(ofKeyEventArgs& e);
