@@ -56,6 +56,12 @@ void ofxLibRocket::loadFont(string file)
 	Rocket::Core::FontDatabase::LoadFontFace(Rocket::Core::String(path.c_str()));
 }
 
+void ofxLibRocket::loadFont(string file, string family, Rocket::Core::Font::Style style, Rocket::Core::Font::Weight weight)
+{
+	string path = ofToDataPath(file, true);
+	Rocket::Core::FontDatabase::LoadFontFace(Rocket::Core::String(path.c_str()),Rocket::Core::String(family.c_str()), style, weight);
+}
+
 ofxLibRocketDocument* ofxLibRocket::loadDocument(string docPath)
 {
 	Rocket::Core::ElementDocument* document = context->LoadDocument(ofToDataPath(docPath).c_str());

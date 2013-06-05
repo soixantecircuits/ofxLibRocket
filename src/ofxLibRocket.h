@@ -30,6 +30,7 @@ public:
 
 	//always load font before calling setup
 	void loadFont(string file);
+  void loadFont(string file, string family, Rocket::Core::Font::Style style, Rocket::Core::Font::Weight weight);
 	
 	ofxLibRocketDocument* loadDocument(string docPath);
   void unloadAllDocuments();
