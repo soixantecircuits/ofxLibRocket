@@ -4,6 +4,10 @@
 #include "Rocket/Core/RenderInterface.h"
 #include "Rocket/Core/Texture.h"
 #include "Rocket/Core/Vertex.h"
+#include "ofxThreadedImageLoader.h"
+
+#include "ofMain.h"
+
 
 class ofxLibRocketRenderInterface: public Rocket::Core::RenderInterface {
 
@@ -20,7 +24,7 @@ public:
 	void RenderGeometry(Rocket::Core::Vertex* vertices, int num_vertices, int* indices, int num_indices, Rocket::Core::TextureHandle texture, const Rocket::Core::Vector2f& translation);
 	void SetScissorRegion(int x, int y, int width, int height);
 
-
+  ofxThreadedImageLoader loader;
 };
 
 #endif // OFXLIBROCKETRENDERINTERFACE_H
