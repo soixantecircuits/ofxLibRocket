@@ -161,7 +161,7 @@ void ofxLibRocketRenderInterface::SetScissorRegion(int x, int y, int width, int 
 bool ofxLibRocketRenderInterface::LoadTexture(Rocket::Core::TextureHandle& texture_handle, Rocket::Core::Vector2i& texture_dimensions, const Rocket::Core::String& source)
 {
 	ofImage* img = new ofImage();
-  loader.loadFromDisk(*img, source.CString());
+  ofxThreadedImageLoader::loadFromDisk(*img, source.CString());
 	texture_handle = (Rocket::Core::TextureHandle) img;
 	//return img->isAllocated();
 	return true;

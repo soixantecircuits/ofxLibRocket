@@ -24,7 +24,7 @@ public:
 	void RenderGeometry(Rocket::Core::Vertex* vertices, int num_vertices, int* indices, int num_indices, Rocket::Core::TextureHandle texture, const Rocket::Core::Vector2f& translation);
 	void SetScissorRegion(int x, int y, int width, int height);
 
-  ofxThreadedImageLoader loader;
+  //ofxThreadedImageLoader loader;
 };
 
 #endif // OFXLIBROCKETRENDERINTERFACE_H
